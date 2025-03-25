@@ -58,17 +58,14 @@ body {
 /* --------------------- */
 [class*="__container"] {
 	max-width: toRem(1270);
-	padding-inline: toRem(15);
+	padding-inline: toRem(16);
 	margin: 0 auto;
-	// @media (min-width: toEm(992.98)) {
-	// 	margin: 0 auto;
-	// 	padding-inline: toRem(40);
-	// 	max-width: toRem(1360);
-	// }
-	// @media (min-width: toEm(1440.98)) {
-	// 	// padding-inline: toRem(80);
-	// 	max-width: toRem(1782);
-	// }
+	@media (min-width: toEm(376)) {
+		padding-inline: toRem(32);
+	}
+	@media (min-width: toEm(769)) {
+		padding-inline: toRem(24);
+	}
 }
 /* --------------------- */
 .home-page {
@@ -86,7 +83,11 @@ body {
 		display: flex;
 		flex-direction: column;
 		gap: toRem(72);
-		padding-block: toRem(72) toRem(110);
+		@include adaptiveValue("padding-block-start", 72, 30);
+		@include adaptiveValue("padding-block-end", 110, 57);
+		@media (max-width: toEm(963.99)) { 
+			gap: toRem(40);
+		}
 	}
 
 	// .hero__title
@@ -94,10 +95,17 @@ body {
 	&__title {
 		color: var(--blue-color);
 		text-align: center;
+		@include adaptiveValue("font-size", 68, 46);
 		font-size: toRem(68);
 		font-weight: 700;
 		line-height: 1.1; /* 74.8px */
 		text-transform: uppercase;
+
+		// @media (max-width: toEm(768)) { 
+		// 	font-size: toRem(56); 
+		// }
+
+
 
 		span {
 			background: linear-gradient(to right, #8636F8, #F020B3, #F8475E, #FF9421);
@@ -113,6 +121,10 @@ body {
 		flex-direction: column;
 		gap: toRem(20);
 		align-items: center;
+
+		@media (max-width: toEm(963.99)) { 
+			gap: toRem(16);
+		}
 		p{
 			text-align: center;
 			font-size: toRem(16);
@@ -127,6 +139,14 @@ body {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: toRem(16);
+
+		@media (max-width: toEm(963.99)) { 
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: toEm(767)) { 
+			grid-template-columns:  1fr;
+			grid-template-rows: repeat(3, 1fr);
+		}
 	}
 
 	// .hero__block
@@ -180,6 +200,14 @@ body {
 			display: flex;
 			flex-direction: column;
 			gap: toRem(26);
+
+			@media (max-width: toEm(963.99)) { 
+				grid-column: span 2;
+			}
+			@media (max-width: toEm(767)) { 
+				grid-column: span 1;
+				
+			}
 			p {
 				line-height: 1.28; /* 128.571% */
 			}
@@ -204,4 +232,8 @@ body {
 	font-weight: 500;
 	line-height: 1.5; /* 30px */
 	text-transform: uppercase;
+
+	@media (max-width: toEm(768)) { 
+		@include adaptiveValue("font-size", 20, 18);
+	}
 }

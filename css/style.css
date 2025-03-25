@@ -128,8 +128,8 @@ body {
   .icon-menu {
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    -ms-flex-preferred-size: 30px;
-        flex-basis: 30px;
+    -ms-flex-preferred-size: 24px;
+        flex-basis: 24px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -199,8 +199,18 @@ body {
 /* --------------------- */
 [class*=__container] {
   max-width: 79.375rem;
-  padding-inline: 0.9375rem;
+  padding-inline: 1rem;
   margin: 0 auto;
+}
+@media (min-width: 23.5em) {
+  [class*=__container] {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 48.0625em) {
+  [class*=__container] {
+    padding-inline: 1.5rem;
+  }
 }
 
 /* --------------------- */
@@ -213,7 +223,47 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 4.5rem;
-  padding-block: 4.5rem 6.875rem;
+}
+@media (min-width: 79.375em) {
+  .hero__container {
+    -webkit-padding-before: 4.5rem;
+            padding-block-start: 4.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 79.375em) {
+  .hero__container {
+    -webkit-padding-before: clamp( 1.875rem , 0.9907894737rem  +  4.4210526316vw , 4.5rem );
+            padding-block-start: clamp( 1.875rem , 0.9907894737rem  +  4.4210526316vw , 4.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .hero__container {
+    -webkit-padding-before: 1.875rem;
+            padding-block-start: 1.875rem;
+  }
+}
+@media (min-width: 79.375em) {
+  .hero__container {
+    -webkit-padding-after: 6.875rem;
+            padding-block-end: 6.875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 79.375em) {
+  .hero__container {
+    -webkit-padding-after: clamp( 3.5625rem , 2.4467105263rem  +  5.5789473684vw , 6.875rem );
+            padding-block-end: clamp( 3.5625rem , 2.4467105263rem  +  5.5789473684vw , 6.875rem );
+  }
+}
+@media (max-width: 20em) {
+  .hero__container {
+    -webkit-padding-after: 3.5625rem;
+            padding-block-end: 3.5625rem;
+  }
+}
+@media (max-width: 60.249375em) {
+  .hero__container {
+    gap: 2.5rem;
+  }
 }
 .hero__title {
   color: var(--blue-color);
@@ -222,6 +272,21 @@ body {
   font-weight: 700;
   line-height: 1.1; /* 74.8px */
   text-transform: uppercase;
+}
+@media (min-width: 79.375em) {
+  .hero__title {
+    font-size: 4.25rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 79.375em) {
+  .hero__title {
+    font-size: clamp( 2.875rem , 2.4118421053rem  +  2.3157894737vw , 4.25rem );
+  }
+}
+@media (max-width: 20em) {
+  .hero__title {
+    font-size: 2.875rem;
+  }
 }
 .hero__title span {
   background: -webkit-gradient(linear, left top, right top, from(#8636F8), color-stop(#F020B3), color-stop(#F8475E), to(#FF9421));
@@ -242,6 +307,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+@media (max-width: 60.249375em) {
+  .hero__text {
+    gap: 1rem;
+  }
+}
 .hero__text p {
   text-align: center;
   font-size: 1rem;
@@ -252,6 +322,17 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+@media (max-width: 60.249375em) {
+  .hero__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 47.9375em) {
+  .hero__cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
 }
 .cards-hero__item {
   border-radius: 0.625rem;
@@ -306,6 +387,16 @@ body {
           flex-direction: column;
   gap: 1.625rem;
 }
+@media (max-width: 60.249375em) {
+  .cards-hero__item:last-child {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 47.9375em) {
+  .cards-hero__item:last-child {
+    grid-column: span 1;
+  }
+}
 .cards-hero__item:last-child p {
   line-height: 1.28; /* 128.571% */
 }
@@ -329,4 +420,19 @@ body {
   font-weight: 500;
   line-height: 1.5; /* 30px */
   text-transform: uppercase;
+}
+@media (max-width: 48em) and (min-width: 79.375em) {
+  .text-block {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 48em) and (min-width: 20em) and (max-width: 79.375em) {
+  .text-block {
+    font-size: clamp( 1.125rem , 1.0828947368rem  +  0.2105263158vw , 1.25rem );
+  }
+}
+@media (max-width: 48em) and (max-width: 20em) {
+  .text-block {
+    font-size: 1.125rem;
+  }
 }
