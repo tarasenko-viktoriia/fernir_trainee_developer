@@ -4,11 +4,17 @@
     padding: toRem(14) toRem(32) toRem(12) toRem(32);
 
     color: var(--bg-white-color);
-    font-size: toRem(18);
+    font-size: toRem(16);
     font-weight: 600;
     line-height: 1.55; /* 155.556% */
     text-transform: uppercase;
     position: relative;
+
+    transition: all 0.3s;
+
+    @media (min-width: toEm(768)) {
+        font-size: toRem(18);
+    }
 
     &::after{
         content: "";
@@ -26,4 +32,33 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+    @media (any-hover: hover) {
+        &:hover {
+
+        }
+    }
+    &--white {
+        background-color: var(--bg-white-color);
+
+        color: var(--blue-color);
+
+    &::after{
+        border: toRem(2) dashed var(--blue-color);
+        background: var(--bg-white-color);
+        background-image: url(../img/telegram-blue.svg);
+        background-size: toRem(32);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    }
+}
+//align-self: flex-start;
+
+.title-section {
+    color: var(--blue-color);
+	font-family: Inter;
+	font-size: toRem(44);
+	font-weight: 700;
+	line-height: 1.3; /* 57.2px */
+	text-transform: uppercase;
 }
