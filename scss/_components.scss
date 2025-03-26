@@ -1,0 +1,29 @@
+.button-telegram {
+    border-radius: toRem(100);
+    background-color: var(--blue-color);
+    padding: toRem(14) toRem(32) toRem(12) toRem(32);
+
+    color: var(--bg-white-color);
+    font-size: toRem(18);
+    font-weight: 600;
+    line-height: 1.55; /* 155.556% */
+    text-transform: uppercase;
+    position: relative;
+
+    &::after{
+        content: "";
+        top: 0;
+        right: -15%;
+        padding: toRem(11);
+        block-size: toRem(54);
+        inline-size: toRem(54);
+        position: absolute;
+        border-radius: 50%;
+        border: toRem(2) dashed var(--bg-color);
+        background: var(--blue-color);
+        background-image: url(../img/telegram-white.svg);
+        background-size: toRem(32);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
