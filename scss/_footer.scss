@@ -12,5 +12,13 @@
       display: flex;
       justify-content: space-between;
       gap: toRem(10);
+      transition: color 0.3s;
+   }
+   &__link {
+      @media(any-hover: hover){
+			&:hover {
+				color: var(--blue-color);
+			}
+		}
    }
 }

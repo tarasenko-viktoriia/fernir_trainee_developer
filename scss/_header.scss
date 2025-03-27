@@ -68,9 +68,9 @@
 	// .menu__link
 	&__link {
 		position: relative;
-      padding: toRem(8) toRem(12);
-      line-height: 1.71; /* 171.429% */
-      text-transform: uppercase;
+		padding: toRem(8) toRem(12);
+		line-height: 1.71; /* 171.429% */
+		text-transform: uppercase;
 		transition: color 0.3s;
 		@media(any-hover: hover){
 			&:hover {

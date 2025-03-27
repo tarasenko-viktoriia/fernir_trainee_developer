@@ -31,10 +31,15 @@
         background-size: toRem(32);
         background-repeat: no-repeat;
         background-position: center;
+        transition: background-color 0.3s;
     }
     @media (any-hover: hover) {
         &:hover {
-
+            background-color: var(--main-text-color);
+            color: var(--bg-white-color);
+            &::after{
+                background-color: var(--main-text-color);
+            }
         }
     }
     &--white {
@@ -49,6 +54,14 @@
         background-size: toRem(32);
         background-repeat: no-repeat;
         background-position: center;
+        transition: all 0.3s;
+
+    }
+    @media (any-hover: hover) {
+        &:hover::after {
+            border: toRem(2) dashed var(--bg-white-color);
+            background-image: url(../img/telegram-white.svg);
+        }
     }
     }
 }
@@ -64,33 +77,29 @@
 }
 
 // ==============================================================
-.home-page {
-
-    // .home-page__items-slider
-
-    &__items-slider {
-    }
-}
 .items-slider {
-    // .items-slider__container
-
-    &__container {
-    }
 
     // .items-slider__header
 
     &__header {
-    }
-
-    // .items-slider__title
-
-    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(20);
+        max-width: toRem(1027);
+        margin-bottom: toRem(60);;
+        p{
+            font-size: toRem(20);
+            font-weight: 500;
+            line-height: 1.5; /* 30px */
+            text-transform: uppercase;
+        }
     }
 
     // .items-slider__list
 
     &__list {
         overflow: visible;
+        margin-bottom: toRem(24);
     }
 
     // .items-slider__swiper-wrapper
@@ -106,19 +115,11 @@
         // flex-basis: toRem(604);
         padding: toRem(32);
     }
-
-    // .items-slider__controls
-
-    &__controls {
-    }
-}
-.swiper {
-}
-.swiper-wrapper {
 }
 .item-slider {
     display: flex;
     flex-direction: column;
+    gap: toRem(24);
     border-radius: toRem(10);
     background: var(--bg-white-color);
     
@@ -127,13 +128,34 @@
     line-height: 1.38; /* 138.462% */
 
     &__header {
+        display: flex;
+        align-items: center;
+        gap: toRem(20);
+        img {
+            border-radius: 50%;
+        }
+        p{
+            font-size: toRem(32);
+            font-weight: 600;
+            line-height: 1.1; /* 35.2px */
+            text-transform: uppercase;
 
+            display: inline-flex;
+            align-items: center;
+            gap: toRem(12);
+            &::after{
+                content: "";
+                inline-size: toRem(24);
+                block-size: toRem(24);
+                flex-shrink: 0;
+                background: url(../img/linkedin.svg) 0 0 / 100% no-repeat;
+            }
+        }
     }
     &__content {
-        flex-grow: 1;
-        p{
-            
-        }
+        display: flex;
+        flex-direction: column;
+        gap: toRem(15);
     }
 }
 .swiper-slide {
@@ -148,24 +170,30 @@
         padding: toRem(14);
         background-color: var(--bg-white-color);
         border-radius: 50%;
-    }
 
-    // .slider-controls__arrow--left
+        transition: background-color 0.3s;
 
-    &__arrow--left {
-        background-image: url("../img/slider-arrow.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: toRem(32); 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: var(--blue-color);
+            }
+        }
     }
 
     // .slider-controls__arrow--right
 
     &__arrow--right {
-        background-image: url("../img/slider-arrow.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: toRem(32);
         transform: rotate(180deg);
+
     }
+}
+
+.slider-controls__arrow--left.disabled,
+.slider-controls__arrow--right.disabled {
+    background-color: gray; /* Колір для неактивної кнопки */
+    pointer-events: none; /* Блокуємо взаємодію з кнопкою */
+    opacity: 0.5; /* Зменшуємо прозорість для візуального ефекту */
 }

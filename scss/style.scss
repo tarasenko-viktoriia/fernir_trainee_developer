@@ -239,12 +239,17 @@ body {
 	}
 }
 //===============================================================
-
+.about{
+	&__title{
+		margin-bottom: toRem(40);
+	}	
+}
 .cards-about {
 	display: grid;
-	grid-template-columns: calc(41% - 16px) calc(9%) calc(20% - 16px) calc(32%);
+	grid-template-columns: 41% 6% 21% 32%;
 
 	gap: toRem(16);
+	margin-bottom: toRem(72);
 	// .cards-about__item
 
 	&__item {
@@ -297,7 +302,7 @@ body {
 			padding: toRem(31) toRem(36) toRem(32) toRem(32);
 		}
 		&:nth-child(6){
-			padding: toRem(32) toRem(30) toRem(32) toRem(32);
+			padding: toRem(32) toRem(70) toRem(0) toRem(32);
 		}
 		&:nth-child(2), &:nth-child(4), &:nth-child(6){
 			grid-column: 2 span;
@@ -314,6 +319,9 @@ body {
 		font-size: toRem(24);
 		line-height: 1.1; /* 26.4px */
 		text-transform: uppercase;
+		&:nth-child(1){
+			margin-bottom: toRem(18);
+		}
 
 		&--colourful {
 			background: linear-gradient(to right, #8636F8, #F020B3, #F8475E, #FF9421);
@@ -359,6 +367,9 @@ body {
 			
 		}
 		&--line {
+			display: flex;
+			flex-direction: column;
+			gap: toRem(8);
 			li {
 				&::before {
 					content: '—'; 
@@ -410,14 +421,16 @@ body {
 		line-height: 1.42; /* 142.857% */
 		text-transform: uppercase;
 		position: relative;
-		display: flex;
-		align-items: center;
-
-		&::before {
+		span{
+			display: inline-flex;
+			height: toRem(15);
+		}
+		span::before {
 			content: "";
 			inline-size: toRem(10);
 			block-size: toRem(15);
 			background: url(../img/hot-icon.svg) 0 0 / 100% no-repeat;
+			margin-right: toRem(10);
 		}
 	}
 }
@@ -425,27 +438,33 @@ body {
 .img-block {
 	flex-grow: 1;
 	position: relative;
-	&::before {
-		content: "";
-		inline-size: toRem(35);
-		block-size: toRem(41);
-		background: url(../img/arrow.svg) 0 0 / 100% no-repeat;
+	padding: 0 0 28px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 100%;
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: toRem(15);
+		margin-bottom: toRem(30);
+		img {
+			inline-size: toRem(24);
+			block-size: toRem(24)
+		}
+		p{
+			color: var(--blue-color);
+			font-size: toRem(12);
+			font-weight: 600;
+			line-height: 1.5; /* 150% */
+			text-transform: uppercase;
+			transform: rotate(-10deg);
+		}
 	}
-	&::after {
-		content: "";
-		inline-size: toRem(24);
-		block-size: toRem(24);
-		background: url(../img/smile.svg) 0 0 / 100% no-repeat;
-	}
-	p{
-		color: var(--blue-color);
-		font-size: toRem(12);
-		font-weight: 600;
-		line-height: 1.5; /* 150% */
-		text-transform: uppercase;
-		transform: rotate(-10deg);
-	}
+	
 }
+
 .pay-card{
 	&__text{
 		font-size: toRem(18);
@@ -458,7 +477,12 @@ body {
 		}
 	}
 }
-
+.now-block {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: toRem(10)
+}
 .banner {
 	// .banner__container
 	@include adaptiveValue("margin-bottom", 72, 30);
@@ -486,4 +510,32 @@ body {
 		line-height: 1.3; /* 57.2px */
 		text-transform: uppercase;
 	}
+}
+
+$mb-values-before: (1: 33, 2: 20, 3: 17);
+$mb-values-title: (1: 18, 2: 19, 3: 16, 4: 16, 5: 16);
+$mb-values-list: (2: 39, 3: 39, 4: 25);
+$mb-values-category: (1: 28);
+
+.cards-about__item {
+    @each $index, $value in $mb-values-title {
+        &:nth-child(#{$index}) .cards-about__title {
+            margin-bottom: toRem($value);
+        }
+    }
+	@each $index, $value in $mb-values-before {
+        &:nth-child(#{$index})::before {
+            margin-bottom: toRem($value);
+        }
+    }
+	@each $index, $value in $mb-values-list{
+        &:nth-child(#{$index}) .cards-about__list {
+            margin-bottom: toRem($value);
+        }
+    }
+	@each $index, $value in $mb-values-category{
+        &:nth-child(#{$index}) .cards-about__category {
+            margin-bottom: toRem($value);
+        }
+    }
 }

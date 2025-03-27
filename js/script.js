@@ -53,3 +53,53 @@ function slidersInit() {
 		// }
 	});
 }
+
+const leftArrow = document.querySelector('.slider-controls__arrow--left');
+const rightArrow = document.querySelector('.slider-controls__arrow--right');
+
+leftArrow.addEventListener('mouseenter', () => {
+	leftArrow.querySelector('img').src = 'img/slider-arrow-white.svg';
+});
+leftArrow.addEventListener('mouseleave', () => {
+	leftArrow.querySelector('img').src = 'img/slider-arrow.svg';
+});
+
+rightArrow.addEventListener('mouseenter', () => {
+	rightArrow.querySelector('img').src = 'img/slider-arrow-white.svg';
+});
+rightArrow.addEventListener('mouseleave', () => {
+	rightArrow.querySelector('img').src = 'img/slider-arrow.svg';
+});
+
+let currentSlide = 0;
+const totalSlides = 2; 
+
+function updateSliderButtons() {
+    if (currentSlide === 0) {
+        leftArrow.classList.add('disabled'); 
+    } else {
+        leftArrow.classList.remove('disabled'); 
+    }
+
+    if (currentSlide === totalSlides - 1) {
+        rightArrow.classList.add('disabled'); 
+    } else {
+        rightArrow.classList.remove('disabled'); 
+    }
+}
+
+leftArrow.addEventListener('click', () => {
+    if (currentSlide > 0) {
+        currentSlide--;
+        updateSliderButtons(); 
+    }
+});
+
+rightArrow.addEventListener('click', () => {
+    if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSliderButtons(); 
+    }
+});
+
+updateSliderButtons();
