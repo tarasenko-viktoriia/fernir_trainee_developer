@@ -246,7 +246,7 @@ body {
 }
 .cards-about {
 	display: grid;
-	grid-template-columns: 41% 6% 21% 32%;
+	grid-template-columns: calc(39.7% - 16px) calc(6.3% - 3px) calc(22% - 16px) calc(32% - 8px);
 
 	gap: toRem(16);
 	margin-bottom: toRem(72);
