@@ -148,6 +148,7 @@ body {
   background: var(--bg-white-color);
   font-size: 0.8125rem;
   line-height: 1.38; /* 138.462% */
+  min-height: 52rem;
 }
 .item-slider__header {
   display: -webkit-box;
@@ -281,8 +282,9 @@ body {
     -webkit-transition: inset-inline-start 0.3s;
     transition: inset-inline-start 0.3s;
     overflow: auto;
-    padding: 100px 65px 30px;
+    padding: 150px 15px 30px;
     background-color: white;
+    font-size: 1.125rem;
   }
   .menu__body::before {
     content: "";
