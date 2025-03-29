@@ -60,10 +60,11 @@ body {
 	max-width: toRem(1288);
 	padding-inline: toRem(16);
 	margin: 0 auto;
-	@media (min-width: toEm(376)) {
+
+	@media (min-width: toEm(769)) {
 		padding-inline: toRem(32);
 	}
-	@media (min-width: toEm(769)) {
+	@media (min-width: toEm(1024)) {
 		padding-inline: toRem(24);
 	}
 }
@@ -249,7 +250,14 @@ body {
 	grid-template-columns: calc(39.7% - 16px) calc(6.3% - 3px) calc(22% - 16px) calc(32% - 8px);
 
 	gap: toRem(16);
-	margin-bottom: toRem(72);
+	@include adaptiveValue("margin-bottom", 72, 38);
+
+	@media (max-width: toEm(1024)) { 
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media (max-width: toEm(768.99)) { 
+		grid-template-columns: 1fr;
+	}
 	// .cards-about__item
 
 	&__item {
@@ -288,28 +296,67 @@ body {
 		}
 		&:nth-child(1){
 			padding: toRem(37) toRem(32) toRem(32);
+
+			@media (max-width: toEm(1024)) { 
+				grid-column: 2 span;
+			}
+			@media (max-width: toEm(768)) { 
+				grid-column: 1 span;
+			}
 		}
-		&:nth-child(2){
-			padding: toRem(37) toRem(34) toRem(32) toRem(32);
-		}
+		
 		&:nth-child(3){
 			padding: toRem(37) toRem(30) toRem(32) toRem(32);
 		}
 		&:nth-child(4){
 			padding: toRem(32) toRem(64) toRem(32) toRem(32);
+			@media (max-width: toEm(768)) { 
+				order: 5;
+			}
 		}
 		&:nth-child(5){
 			padding: toRem(31) toRem(36) toRem(32) toRem(32);
+			@media (max-width: toEm(1024)) { 
+				grid-column: 2 span;
+			}
+			@media (max-width: toEm(768)) { 
+				grid-column: 1 span;
+			}
 		}
 		&:nth-child(6){
 			padding: toRem(32) toRem(70) toRem(0) toRem(32);
+
+			@media (max-width: toEm(550)) { 
+				padding: toRem(32) toRem(40) toRem(32) toRem(24);
+			}
+			@media (max-width: toEm(768)) { 
+				order: 6;
+			}
 		}
 		&:nth-child(2), &:nth-child(4), &:nth-child(6){
 			grid-column: 2 span;
+			@media (max-width: toEm(768)) { 
+				grid-column: 1 span;
+			}
+		}
+		&:nth-child(2){
+			padding: toRem(37) toRem(34) toRem(32) toRem(32);
+
+			@media (max-width: toEm(1024)) { 
+				grid-column: 1 span;
+			}
 		}
 		&:nth-child(5){
 			grid-column: 2 span;
 			grid-row: 2 span;
+
+			@media (max-width: toEm(1024)) { 
+				grid-row: 1 span;
+			}
+			@media (max-width: toEm(768)) { 
+				grid-column: 1 span;
+				order: 4;
+			}
 		}
 	}
 
@@ -438,7 +485,7 @@ body {
 .img-block {
 	flex-grow: 1;
 	position: relative;
-	padding: 0 0 28px 30px;
+	padding: toRem(0) toRem(0) toRem(28) toRem(30);
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
@@ -481,7 +528,11 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	gap: toRem(10)
+	gap: toRem(16);
+
+	@media (max-width: toEm(550)) { 
+		flex-direction: column-reverse;
+	}
 }
 .banner {
 	// .banner__container
