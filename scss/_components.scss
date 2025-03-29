@@ -190,34 +190,39 @@
     gap: toRem(32);
     // .slider-controls__arrow
 
+    
     &__arrow {
         padding: toRem(14);
         background-color: var(--bg-white-color);
         border-radius: 50%;
 
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, filter 0.3s;
 
         display: flex;
         justify-content: center;
         align-items: center;
+
+    
         @media (any-hover: hover) {
             &:hover {
                 background-color: var(--blue-color);
+    
+                img {
+                    filter: invert(1);
+                }
             }
         }
     }
-
     // .slider-controls__arrow--right
 
     &__arrow--right {
         transform: rotate(180deg);
-
     }
 }
 
-.slider-controls__arrow--left.disabled,
-.slider-controls__arrow--right.disabled {
-    background-color: gray; /* Колір для неактивної кнопки */
-    pointer-events: none; /* Блокуємо взаємодію з кнопкою */
-    opacity: 0.5; /* Зменшуємо прозорість для візуального ефекту */
-}
+// .slider-controls__arrow--left.disabled,
+// .slider-controls__arrow--right.disabled {
+//     background-color: gray; 
+//     pointer-events: none; 
+//     opacity: 0.5; 
+// }
