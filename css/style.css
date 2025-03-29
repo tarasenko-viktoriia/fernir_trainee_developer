@@ -192,10 +192,14 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1rem;
 }
 .items-slider__item {
   padding: 2rem;
+}
+@media (max-width: 48em) {
+  .items-slider__item {
+    padding: 1.5rem 1rem;
+  }
 }
 
 .item-slider {

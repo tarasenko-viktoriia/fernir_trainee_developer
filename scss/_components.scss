@@ -125,7 +125,6 @@
 
     &__swiper-wrapper {
         display: flex;
-        gap: toRem(16);
     }
 
     // .items-slider__item
@@ -133,6 +132,10 @@
     &__item {
         // flex-basis: toRem(604);
         padding: toRem(32);
+
+        @media (max-width: toEm(768)) { 
+            padding: toRem(24) toRem(16);
+        }
     }
 }
 .item-slider {
@@ -146,6 +149,7 @@
     font-size: toRem(13);
     line-height: 1.38; /* 138.462% */
     min-height: toRem(832);
+    // min-height: toRem(1209);
 
     &__header {
         display: flex;
