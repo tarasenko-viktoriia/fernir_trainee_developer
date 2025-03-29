@@ -15,12 +15,21 @@
     display: flex;
     flex-shrink: 0;
 
-    @media (min-width: toEm(768)) {
-        font-size: toRem(18);
-    }
     @media (min-width: toEm(375)) {
         padding: toRem(14) toRem(32) toRem(12) toRem(32);
     }
+    @media (min-width: toEm(768)) {
+        font-size: toRem(18);
+    }
+    @media (min-width: toEm(1024)) {
+        padding: toRem(14) toRem(28) toRem(12) toRem(28);
+    }
+    @media (min-width: toEm(1200)) {
+        padding: toRem(14) toRem(32) toRem(12) toRem(32);
+    }
+    // @media (min-width: toEm(375)) {
+    //     padding: toRem(14) toRem(32) toRem(12) toRem(32);
+    // }
 
     &::after{
         content: "";

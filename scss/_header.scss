@@ -4,7 +4,11 @@
 	inset-inline-start: 0;
 	inset-block-start: 0;
 	z-index: 50;
-	padding-top: toRem(24);
+	padding-top: toRem(16);
+
+   @media (min-width: toEm(769)) {
+      padding-top: toRem(24);
+   }
 		
 	backdrop-filter: blur(toRem(8));
 	// .header__container
@@ -24,12 +28,13 @@
         block-size: toRem(40);
 	}
 	&__block {
-		padding-inline: toRem(24);
-		@media (max-width: 767.99px) {
+		padding-inline: toRem(16);
+
+		@media (min-width: toEm(769)) {
 			padding-inline: toRem(32);
 		}
-		@media (max-width: 374.99px) {
-			padding-inline: toRem(16);
+		@media (min-width: toEm(1024)) {
+			padding-inline: toRem(24);
 		}
 	}
 }

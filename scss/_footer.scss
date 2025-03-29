@@ -1,5 +1,9 @@
 .footer {
-   padding-bottom: toRem(24);
+   padding-bottom: toRem(16);
+
+   @media (min-width: toEm(769)) {
+      padding-bottom: toRem(24);
+   }
    // .footer__container
 
    &__container {
@@ -26,13 +30,13 @@
 		}
    }
    &__block {
-      padding-inline: toRem(24);
+      padding-inline: toRem(16);
 
-      @media (max-width: 767.99px) {
+      @media (min-width: toEm(769)) {
          padding-inline: toRem(32);
       }
-      @media (max-width: 374.99px) {
-         padding-inline: toRem(16);
+      @media (min-width: toEm(1024)) {
+         padding-inline: toRem(24);
       }
    }
 }
